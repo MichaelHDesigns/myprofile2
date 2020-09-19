@@ -1,5 +1,85 @@
+<div class="landing-icons">
+      {% if site.email != null %}
+        <a class="social-link email" aria-label="My E-Mail" a href="https://michaelhdesigns.github.io/playtime">
+          <svg viewBox="0 0 200 200" class="circle">
+            <circle cx="100" cy="100" r="80" />
+          </svg>
+          <div class="social">
+            <svg class="social-svg" viewBox="0 0 48 48">
+              <use x="12" y="12" width="24" height="24" viewBox="0 0 48 48" xlink:href="{{ "/assets/img/solid.svg#home" | prepend: site.baseurl }}""></use>
+            </svg>
+          </div>
+          <span class="label">Home</span>
+        </a>
+      {% endif %}
+
+      {% if site.dev_username != null %}
+        <a class="social-link" aria-label="My DEV" target="_blank" rel="noreferrer"
+         href="https://michaelhdesigns.github.io/about">
+          <svg viewBox="0 0 200 200" class="circle">
+            <circle cx="100" cy="100" r="80" />
+          </svg>
+          <div class="social">
+            <svg class="social-svg" viewBox="0 0 48 48">
+              <use x="12" y="12" width="24" height="24" viewBox="0 0 48 48" xlink:href="{{ "/assets/img/solid.svg#user" | prepend: site.baseurl }}"></use>
+            </svg>
+          </div>
+          <span class="label">About</span>
+        </a>
+      {% endif %}
+
+      {% if site.facebook_username != null %}
+        <a class="social-link linkedin" aria-label="My LinkedIn" target="_blank"
+          rel="noreferrer" href="https://michaelhdesigns.github.io/education"
+        >
+          <svg viewBox="0 0 200 200" class="circle">
+            <circle cx="100" cy="100" r="80" />
+          </svg>
+          <div class="social">
+            <svg class="social-svg" viewBox="0 0 48 48">
+              <use x="12" y="12" width="24" height="24" viewBox="0 0 48 48" xlink:href="{{ "/assets/img/solid.svg#university" | prepend: site.baseurl }}"></use>
+            </svg>
+          </div>
+          <span class="label">Education</span>
+        </a>
+      {% endif %}
+
+      {% if site.twitter_username != null %}
+        <a class="social-link twitter" aria-label="My Twitter" target="_blank"
+          rel="noreferrer" href="https://michaelhdesigns.github.io/projects"
+        >
+          <svg viewBox="0 0 200 200" class="circle">
+            <circle cx="100" cy="100" r="80" />
+          </svg>
+          <div class="social">
+            <svg class="social-svg" viewBox="0 0 48 48">
+              <use x="12" y="12" width="24" height="24" viewBox="0 0 48 48" xlink:href="{{ "/assets/img/solid.svg#tools" | prepend: site.baseurl }}"></use>
+            </svg>
+          </div>
+          <span class="label">Projects</span>
+        </a>
+      {% endif %}
+
+        {% if site.twitter_username != null %}
+        <a class="social-link twitter" aria-label="My Twitter" target="_blank"
+          rel="noreferrer" href="https://michaelhdesigns.github.io/contact"
+        >
+          <svg viewBox="0 0 200 200" class="circle">
+            <circle cx="100" cy="100" r="80" />
+          </svg>
+          <div class="social">
+            <svg class="social-svg" viewBox="0 0 48 48">
+              <use x="12" y="12" width="24" height="24" viewBox="0 0 48 48" xlink:href="{{ "/assets/img/solid.svg#address-book" | prepend: site.baseurl }}"></use>
+            </svg>
+          </div>
+          <span class="label">Contact</span>
+        </a>
+      {% endif %}
+    </div>
+
+
 {% if site.show_projects %}
-  <h1 class="title"><span>{{site.projects_title}}</span></h1>
+  <h1 class="title" style="color: #34bcaa; text-align: center"><span>{{site.projects_title}}</span></h1>
   <div class="projects-wrapper">
     {% for project in site.data.projects %}
       <div class="project neumorphism-card" data-aos="zoom-in-down">
@@ -9,7 +89,12 @@
         <p class="project-desc">{{project.descr}}</p>
         {% if project.demo %}
           <a class="highlight-link" href="{{project.demo}}" target="_blank" rel="noreferrer">
-            Demo
+            HTH Worldwide
+          </a>
+        {% endif %}
+        {% if project.live %}
+          <a class="highlight-link" href="{{project.live}}" target="_blank" rel="noreferrer">
+            HTH Coin
           </a>
         {% endif %}
         {% if project.tags %}
@@ -25,13 +110,12 @@
 {% endif %}
 
 {% if site.show_os_projects %}
-  <h1 class="title">{{site.os_projects_title}}</h1>
+  <h1 class="title" style="color: #34bcaa; text-align: center">{{site.os_projects_title}}</h1>
   {% if site.projects.sort_by == 'stars' %}
     {% assign sort_order = 'stargazers_count', 'last' %}
   {% else %}
     {% assign sort_order = 'pushed_at' %}
   {% endif %}
-
   {% if site.projects.exclude.archived && site.projects.exclude.forks %}
     {% assign filtered_repos = site.github.public_repositories | where:'archived', false | where:'fork', false | sort: sort_order | reverse %}
   {% elsif site.projects.exclude.archived %}
@@ -41,7 +125,6 @@
   {% else %}
     {% assign filtered_repos = site.github.public_repositories | sort: sort_order | reverse %}
   {% endif %}
-
   <div class="projects-wrapper">
     {% for repository in filtered_repos %}
       {% unless site.projects.exclude.projects contains repository.name %}
@@ -71,7 +154,7 @@
           <p class="project-desc">{{repository.description}}</p>
           {% if repository.homepage != "" and repository.homepage != nil %}
             <a class="highlight-link" href="{{repository.homepage}}" target="_blank" rel="noreferrer">
-              Demo
+              HTH
             </a>
           {% endif %}
           <a class="highlight-link" href="{{repository.html_url}}" target="_blank" rel="noreferrer">
@@ -89,5 +172,3 @@
     {% endfor %}
   </div>
 {% endif %}
-
-
