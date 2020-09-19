@@ -2,19 +2,19 @@
 
 # GENERAL SITE SETTINGS
 # title: This will be displayed as the website's name in your browser tab.
-title: Michael H
+title: Michael H | Projects
 # description: This will be meta HTML tag content. This can be ignored.
 description: Website for Michael H
 # baseurl: The subpath of your site
 # > set this to "", if you renamed the repository to <user>.github.io
-baseurl: "/profile"
+baseurl: "/projects"
 
 # LANDING PAGE
 # username: This will displayed on the landing page as your name.
 username: Michael H
 # typing_text: This will be typed before 'scroll down for more'.
 # > set this to your job title, e.g. Fullstack Developer
-typing_text: Co-Founder & Director of
+typing_text: See The Open Source Projects
 # email: Your E-Mail address for the email button.
 email: devilking6105@gmail.com
 # For every social button you want to display, set your username or userid
@@ -94,7 +94,7 @@ contact_description: Help The Homeless Worldwide<br> 900 Barnegat Blvd N <br> Un
 # GITHUB-METADATA
 # Set this to your forked repository
 # > e.g. <user>/<user>.github.io
-repository: MichaelHDesigns/profile
+repository: MichaelHDesigns/projects
 projects:
   # sortby:
   # > set this to pushed, if you want to sort your github repositories by time.
